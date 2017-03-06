@@ -822,6 +822,7 @@ class DebianGenerator(BloomGenerator):
         self.set_releaser_history(dict(releaser_history))
         # Handle gbp.conf
         subs['release_tag'] = self.get_release_tag(subs)
+        subs['use_oldconfig'] = debian_distro in ['jessie', 'trusty']
         # Template files
         template_files = process_template_files('.', subs)
         # Remove any residual template files
